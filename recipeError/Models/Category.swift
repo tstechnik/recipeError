@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct Category: Codable {
+    let id: Int
+    let background: URL?
+    let name: String
+    let sort_order: Int!
+}
+
+

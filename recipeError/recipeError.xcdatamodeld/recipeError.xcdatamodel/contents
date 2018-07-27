@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreIngredient" representedClassName="CoreIngredient" syncable="YES" codeGenerationType="class">
+        <attribute name="ingredient_id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreRecipeIngredient" inverseName="ingredient" inverseEntity="CoreRecipeIngredient" syncable="YES"/>
+    </entity>
+    <entity name="CoreRecipe" representedClassName="CoreRecipe" syncable="YES" codeGenerationType="class">
+        <attribute name="category_id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cooking_time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="main_image" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="person_quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="preparation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="preparation_time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="video" optional="YES" attributeType="URI" syncable="YES"/>
+        <relationship name="measureIngredient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreRecipeIngredient" inverseName="recipe" inverseEntity="CoreRecipeIngredient" syncable="YES"/>
+    </entity>
+    <entity name="CoreRecipeIngredient" representedClassName="CoreRecipeIngredient" syncable="YES" codeGenerationType="class">
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ingredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreIngredient" inverseName="recipes" inverseEntity="CoreIngredient" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreRecipe" inverseName="measureIngredient" inverseEntity="CoreRecipe" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoreIngredient" positionX="-108" positionY="-45" width="128" height="88"/>
+        <element name="CoreRecipe" positionX="-297" positionY="54" width="128" height="193"/>
+        <element name="CoreRecipeIngredient" positionX="9" positionY="126" width="128" height="88"/>
+    </elements>
 </model>
